@@ -30,9 +30,9 @@ func (b Base) Puzzles(skipErrors bool) []Puzzle {
 		}
 	}
 	buildInfo, _ := debug.ReadBuildInfo()
-	b.Logger.Info("My version is ...", buildInfo.Main.Version)
+	b.Logger.Infof("My version is %s", buildInfo.Main.Version)
 	b.Logger.Infof("Go version is %s", runtime.Version())
-	b.Logger.Info("Reading from root dir %s", dir)
+	b.Logger.Infof("Reading from root dir %s", dir)
 
 	sources, err := MakeSources(dir, b.Exclude, b.Include, !b.SkipGitignore)
 	if err != nil {
@@ -45,7 +45,7 @@ func (b Base) Puzzles(skipErrors bool) []Puzzle {
 			panic(err)
 		}
 		for _, p := range collected {
-			b.Logger.Info("Puzzle %s %s/%s at %s", p.Id, p.Estimate, p.Role, p.File)
+			b.Logger.Infof("Puzzle %s %d/%s at %s", p.Id, p.Estimate, p.Role, p.File)
 			puzzles = append(puzzles, p)
 		}
 	}

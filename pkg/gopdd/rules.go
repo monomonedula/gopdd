@@ -176,18 +176,12 @@ func RulesOf(rulesstrings []string) []Rule {
 				panic(err)
 			}
 			rules = append(rules, MinWordsRule{parsed})
-		} else if strings.HasPrefix(rulestr, "max-duplicates:") {
-			value := strings.Split(rulestr, ":")[1]
-			parsed, err := strconv.Atoi(value)
-			if err != nil {
-				panic(err)
-			}
-			rules = append(rules, MaxDuplicatesRule{parsed})
 		} else if strings.HasPrefix(rulestr, "available-roles:") {
 			value := strings.Split(rulestr, ":")[1]
 			roles := strings.Split(value, ",")
 			rules = append(rules, AvailableRolesRule{roles})
 		}
 	}
+	rules = append(rules, MaxDuplicatesRule{1})
 	return rules
 }

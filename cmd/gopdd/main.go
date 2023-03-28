@@ -42,7 +42,8 @@ func main() {
 			&cli.StringSliceFlag{
 				Name:    "rule",
 				Aliases: []string{"r"},
-				Usage:   "Rule to apply (can be used many times)",
+				Usage: "Rule to apply (can be used many times). Possible values: " +
+					"'max-estimate:<int>', 'min-estimate:<int>', 'min-words:<int>', 'available-roles:<ROLENAME>,<ROLANME>...'",
 			},
 			&cli.StringSliceFlag{
 				Name:    "include",
