@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -87,6 +88,10 @@ func Run(ctx *cli.Context) error {
 		Rules:         gopdd.RulesOf(rules),
 		Logger:        logger,
 	}.JsonPuzzles(skipErrors)
-	err := os.WriteFile(file, []byte(output), 0644)
+	if file == "" {
+		fmt.Println(string(output))
+		return nil
+	}
+	err := os.WriteFile(file, output, 0644)
 	return err
 }

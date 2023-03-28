@@ -63,12 +63,15 @@ func FindTodo(line string) (*TodoLine, error) {
 	if !strings.Contains(strings.ToLower(line), "todo") {
 		return nil, nil
 	}
+	re := regexp.MustCompile(`(.*(?:^|\s))(?:\x40todo|TODO:|TODO)\s+#([\w\-.:/]+)\s+(.+)`)
+	matches := re.FindStringSubmatch(line)
+	if len(matches) == 0 {
+		return nil, nil
+	}
 	formatErr := badFormat(line)
 	if formatErr != "" {
 		return nil, errors.New(formatErr)
 	}
-	re := regexp.MustCompile(`(.*(?:^|\s))(?:\x40todo|TODO:|TODO)\s+#([\w\-.:/]+)\s+(.+)`)
-	matches := re.FindStringSubmatch(line)
 	return &TodoLine{
 		line:   matches[0],
 		prefix: matches[1],
