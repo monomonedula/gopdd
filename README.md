@@ -19,7 +19,7 @@ COMMANDS:
    help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --source value, -s value                                 Source directory to parse ('.' by default) (default: ".")
+   --source value, -s value                                 Source directory to parse (default: ".")
    --file value, -f value                                   File to save JSON output into
    --verbose, -v                                            Enable verbose mode (a lot of logging) (default: false)
    --skip-gitignore                                         Don't look into .gitignore for excludes (default: false)
@@ -28,11 +28,44 @@ GLOBAL OPTIONS:
    --include value, -n value [ --include value, -n value ]  Glob pattern to include, e.g. "**/*.jpg"
    --exclude value, -e value [ --exclude value, -e value ]  Glob pattern to exclude, e.g. "**/*.jpg"
    --help, -h                                               show help
-
 ```
 
 
 Example output:
 ```json
-[{"id":"209-c992021","ticket":"209","estimate":30,"role":"DEV","lines":"3-5","body":"whatever 1234. Please fix soon 1.","file":"/home/user/gopdd/resources/foobar.py","author":"monomonedula","email":"email@xxx.xyz","time":"2023-03-26T23:27:31+03:00"},{"id":"321-b7bbd66","ticket":"321","estimate":60,"role":"DEV","lines":"9-11","body":"very important issue. Please fix soon 2.","file":"/home/user/gopdd/resources/foobar.py","author":"monomonedula","email":"email@xxx.xyz","time":"2023-03-26T23:27:31+03:00"}]
+[
+  {
+    "id": "209-c992021",
+    "ticket": "209",
+    "estimate": 30,
+    "role": "DEV",
+    "lines": "3-5",
+    "body": "whatever 1234. Please fix soon 1.",
+    "file": "/home/user/gopdd/resources/foobar.py",
+    "author": "monomonedula",
+    "email": "email@xxx.xyz",
+    "time": "2023-03-26T23:27:31+03:00"
+  },
+  {
+    "id": "321-b7bbd66",
+    "ticket": "321",
+    "estimate": 60,
+    "role": "DEV",
+    "lines": "9-11",
+    "body": "very important issue. Please fix soon 2.",
+    "file": "/home/user/gopdd/resources/foobar.py",
+    "author": "monomonedula",
+    "email": "email@xxx.xyz",
+    "time": "2023-03-26T23:27:31+03:00"
+  }
+]
 ```
+
+Installation:
+```
+go install -v github.com/monomonedula/gopdd/cmd/gopdd@latest
+```
+
+Tested on MacOS and Linux.
+
+
