@@ -30,3 +30,9 @@ GLOBAL OPTIONS:
    --help, -h                                               show help
 
 ```
+
+
+Example output:
+```json
+[{"id":"209-c992021","ticket":"209","estimate":30,"role":"DEV","lines":"3-5","body":"whatever 1234. Please fix soon 1.","file":"/home/user/gopdd/resources/foobar.py","author":"monomonedula","email":"email@xxx.xyz","time":"2023-03-26T23:27:31+03:00"},{"id":"321-b7bbd66","ticket":"321","estimate":60,"role":"DEV","lines":"9-11","body":"very important issue. Please fix soon 2.","file":"/home/user/gopdd/resources/foobar.py","author":"monomonedula","email":"email@xxx.xyz","time":"2023-03-26T23:27:31+03:00"}]
+```

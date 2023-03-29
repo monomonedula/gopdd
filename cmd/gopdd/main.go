@@ -19,7 +19,7 @@ func main() {
 			&cli.StringFlag{
 				Name:    "source",
 				Value:   ".",
-				Usage:   "Source directory to parse ('.' by default)",
+				Usage:   "Source directory to parse",
 				Aliases: []string{"s"},
 			},
 			&cli.StringFlag{

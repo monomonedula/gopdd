@@ -1,7 +1,6 @@
 package gopdd
 
 import (
-	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -134,22 +133,6 @@ func (r AvailableRolesRule) ApplyTo(puzzles []Puzzle) []string {
 		}
 	}
 	return errors
-}
-
-func (b Base) ApplyRules(puzzles []Puzzle) error {
-	total := 0
-	for _, rule := range b.Rules {
-		errors := rule.ApplyTo(puzzles)
-		total += len(errors)
-		for _, err := range errors {
-			b.Logger.Error(err)
-		}
-	}
-	if total == 0 {
-		return nil
-	}
-	b.Logger.Errorf("Got %d errors. See logs above", total)
-	return errors.New("puzzles do not comply with the rules")
 }
 
 func RulesOf(rulesstrings []string) []Rule {
