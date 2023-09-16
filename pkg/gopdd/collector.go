@@ -24,6 +24,11 @@ import (
 type Source struct {
 	source string
 	file   string
+	root   string
+}
+
+func (s Source) PathFromRoot() string {
+	return strings.Replace(s.file, s.root, "", 1)
 }
 
 func splitLines(s string) []string {
@@ -159,7 +164,7 @@ func (s Source) PuzzleOf(td TodoLine, following []string, idx int) (Puzzle, erro
 		Estimate: marker.estimate,
 		Lines:    fmt.Sprintf("%d-%d", idx, idx+len(tail)+1),
 		Body:     body,
-		File:     s.file,
+		File:     s.PathFromRoot(),
 		Author:   git.author,
 		Email:    git.email,
 		Time:     git.time,
@@ -387,7 +392,7 @@ func (s Sources) fetch() []Source {
 		if err != nil {
 			panic(err)
 		}
-		sources = append(sources, Source{file: path, source: string(content)})
+		sources = append(sources, Source{file: path, root: s.dir, source: string(content)})
 	}
 	return sources
 
