@@ -28,7 +28,7 @@ type Source struct {
 }
 
 func (s Source) PathFromRoot() string {
-	return strings.Replace(s.file, s.root, "", 1)
+	return strings.TrimPrefix(strings.Replace(s.file, s.root, "", 1), "/")
 }
 
 func splitLines(s string) []string {
