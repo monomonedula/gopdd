@@ -41,7 +41,7 @@ Example output:
     "role": "DEV",
     "lines": "3-5",
     "body": "whatever 1234. Please fix soon 1.",
-    "file": "/home/user/gopdd/resources/foobar.py",
+    "file": "resources/foobar.py",
     "author": "monomonedula",
     "email": "email@xxx.xyz",
     "time": "2023-03-26T23:27:31+03:00"
@@ -53,7 +53,7 @@ Example output:
     "role": "DEV",
     "lines": "9-11",
     "body": "very important issue. Please fix soon 2.",
-    "file": "/home/user/gopdd/resources/foobar.py",
+    "file": "resources/foobar.py",
     "author": "monomonedula",
     "email": "email@xxx.xyz",
     "time": "2023-03-26T23:27:31+03:00"
